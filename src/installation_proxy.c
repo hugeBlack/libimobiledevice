@@ -656,6 +656,10 @@ LIBIMOBILEDEVICE_API instproxy_error_t instproxy_install(instproxy_client_t clie
 
 	plist_t command = plist_new_dict();
 	plist_dict_set_item(command, "Command", plist_new_string("Install"));
+    
+    client_options = plist_new_dict();
+    plist_dict_set_item(client_options, "CFBundleIdentifier", plist_new_string("whatever"));
+    
 	if (client_options)
 		plist_dict_set_item(command, "ClientOptions", plist_copy(client_options));
 	plist_dict_set_item(command, "PackagePath", plist_new_string(pkg_path));
